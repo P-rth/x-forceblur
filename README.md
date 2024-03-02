@@ -1,9 +1,10 @@
 
 ## Force blur script for kde6 
 
+![enter image description here](https://raw.githubusercontent.com/P-rth/kde6-forceblur/main/2024-03-02_02-52.png)
+
+
 **you can customite this script by editing the first 2 commands :**
-
-
 
 > Define the classes you want to exclude
 
