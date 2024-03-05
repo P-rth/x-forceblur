@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Define the classes you want to exclude
-excluded_classes=("plasmashell" "Thorium-browser" "kwin" "")
+excluded_classes=("plasmashell" "Thorium-browser" "kwin" "dolphin" "kate" "systemsettings" "")
 
 # Define the window types you want to include to not be blurred
 #you can remove "_NET_WM_WINDOW_TYPE_MENU" from this list if you also want blurring behind menus (context menus etc...)
-included_types=("_NET_WM_WINDOW_TYPE_DOCK" "_NET_WM_WINDOW_TYPE_DESKTOP" "_NET_WM_WINDOW_TYPE_SPLASH" "_NET_WM_WINDOW_TYPE_DND" "_NET_WM_WINDOW_TYPE_MENU" )
+included_types=("_NET_WM_WINDOW_TYPE_NORMAL")
 
 # Array to keep track of windows that have been processed
 processed_window_ids=()
@@ -41,12 +41,12 @@ while true; do
 
 
         # Check if any of the window types are in the included list
-        is_included=true
+        is_included=false
         for wtype in ${window_types[@]}; do
         #echo "$wtype"
             for included_type in "${included_types[@]}"; do
                 if [[ "$wtype" == "$included_type" ]]; then
-                    is_included=false
+                    is_included=true
                     break 2  # Break both loops if a match is found
                 fi
             done
